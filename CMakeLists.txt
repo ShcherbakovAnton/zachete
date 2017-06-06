@@ -26,6 +26,7 @@ target_link_libraries(${NAME} ${Geant4_LIBRARIES})
 set(FSCRIPTS
         init_vis.mac
         vis.mac
+        run.mac
         )
 
 foreach(_script ${FSCRIPTS})

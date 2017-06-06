@@ -12,7 +12,7 @@ int Logger::verbose_level = 0;
 
 void Logger::Open(int Verbose_level){
     verbose_level=(Verbose_level)?1:0;
-    fout.open("//home//student//CLionProjects//Final_upto_1305//log.txt");
+    fout.open("/home/student/CLionProjects/ItsAFinalCntdwn//log.txt");
 }
 
 void Logger::Close(){

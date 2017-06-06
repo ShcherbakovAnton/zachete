@@ -4,7 +4,22 @@
 
 #include <Mes.hh>
 #include <Logger.hh>
+#include <PrimaryPat.hh>
+#include <EventAct.hh>
 
+
+Mes2::Mes2(EventAct* even21):even1(even21) {
+    Logger::Info("Hello");
+    ch_all2 = new G4UIcmdWithADouble("/new_commands/change_2222!!!", this);
+    ch_all2->SetGuidance("setting new ");
+}
+
+
+
+Mes1::Mes1(PrimaryPat* Part):party(Part) {
+    ch_all1 = new G4UIcmdWithADouble(" 22222222!!!new_commands/change_2222!!!", this);
+    ch_all1->SetGuidance("setting new fluxes");
+}
 
 Mes::Mes(Geometry* geom):detGeom(geom) {
     //Logger::Info("\"Mes.cc\" works, command created");
@@ -53,13 +68,27 @@ void Mes::SetNewValue(G4UIcommand* cmd, G4String newvalue){
 
     if (cmd == ch_all)
         detGeom->ChangeAll(ch_all->GetNewDoubleValue(newvalue));
+}
+
+    void Mes1::SetNewValue(G4UIcommand* cmd, G4String newvalue1){
+        Logger::Info("\"Mes.cc\"->cmd SetNewValue works");
+    if (cmd == ch_all1)
+        party->ChangeAll228(ch_all1->GetNewDoubleValue(newvalue1));
+    }
+
+
+void Mes2::SetNewValue(G4UIcommand* cmd, G4String newvalue2){
+    //Logger::Info("\"Mes.cc\"->cmd SetNewValue works");
+    if (cmd == ch_all2)
+        even1->ChangeAll22(ch_all2->GetNewDoubleValue(newvalue2));
+}
 
 
 
     //if (cmd == change_Mat)
     //    detGeom->SetMat("G4_Fe");
        // detGeom->SetMat(change_Mat->GetCurrentValue());
-        Logger::Info(" Material changed to-> smth");
+     //   Logger::Info(" Material changed to-> smth");
     /*if (cmd == change_Col)
         detGeom->SetMat("G4_Fe");*/
-}
+

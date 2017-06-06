@@ -12,14 +12,51 @@
 #include <G4UImessenger.hh>
 #include <Geometry.hh>
 #include <G4UIcmdWithAString.hh>
+#include "PrimaryPat.hh"
+
+
+
+
+class EventAct;
+class Mes2 : public G4UImessenger{
+public:
+
+    Mes2(EventAct* even21);
+    ~Mes2(){}
+    void SetNewValue(G4UIcommand* cmd, G4String newvalue2);
+    EventAct* even1;
+private:
+    G4UIcmdWithADouble* ch_all2;
+
+
+
+};
+
+
+class PrimaryPat;
+class Mes1 : public G4UImessenger{
+public:
+
+    Mes1(PrimaryPat* Part);
+    ~Mes1(){}
+    void SetNewValue(G4UIcommand* cmd, G4String newvalue1);
+    PrimaryPat* party;
+private:
+    G4UIcmdWithADouble* ch_all1;
+
+
+
+};
 
 class Geometry;
 class Mes : public G4UImessenger{
 public:
+
     Mes(Geometry* geom);
     ~Mes(){}
     void SetNewValue(G4UIcommand* cmd, G4String newvalue);
     Geometry* detGeom;
+    //PrimaryPat* party;
 
 private:
     //Geometry* detGeom;
